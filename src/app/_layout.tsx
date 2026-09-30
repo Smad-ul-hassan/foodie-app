@@ -1,18 +1,26 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
+import { RecipeProvider } from "../context/RecipeContext";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <RecipeProvider>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="recipe/[id]"
+          options={{ title: "Recipe Details" }}
+        />
+        <Stack.Screen name="favorites" options={{ title: "Favorites" }} />
+        <Stack.Screen name="my-food" options={{ title: "My Food" }} />
+        <Stack.Screen name="add-recipe" options={{ title: "Add New Recipe" }} />
+
+        <Stack.Screen name="my-recipes" options={{ title: "My Recipes" }} />
+        <Stack.Screen name="my-recipes" options={{ title: "My Recipes" }} />
+        <Stack.Screen
+          name="edit-recipe/[id]"
+          options={{ title: "Edit Recipe" }}
+        />
+      </Stack>
+    </RecipeProvider>
   );
 }
