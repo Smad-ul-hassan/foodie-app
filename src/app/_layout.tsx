@@ -15,7 +15,6 @@ export default function RootLayout() {
         <Stack.Screen name="add-recipe" options={{ title: "Add New Recipe" }} />
 
         <Stack.Screen name="my-recipes" options={{ title: "My Recipes" }} />
-        <Stack.Screen name="my-recipes" options={{ title: "My Recipes" }} />
         <Stack.Screen
           name="edit-recipe/[id]"
           options={{ title: "Edit Recipe" }}
